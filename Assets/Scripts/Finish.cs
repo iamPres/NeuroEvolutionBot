@@ -14,7 +14,7 @@ public class Finish : MonoBehaviour {
 
 	}
 	void OnTriggerEnter(Collider coll){
-		gameManager.GetComponent<Population>().mutationRate = 0f;
+		gameManager.GetComponent<PopulationModular>().mutationRate = 0f;
 		Debug.Log(coll.gameObject.name+" HAS COMPLETED THE CHALLENGE");
 	}
 }

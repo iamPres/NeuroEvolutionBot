@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Population : MonoBehaviour {
 
-public static int pop = 50;
+public static int pop = 10;
 public GameObject Player;
 GameObject[] PlayerClone = new GameObject[pop];
 public int deathCount = 0;
@@ -17,6 +17,7 @@ private WalkStraight[] script = new WalkStraight[pop];
 public Text uiEpoch;
 public Text uiFittest;
 public Text uiAvg;
+private float fittest = 0;
 float avg;
 
 	void Start() {
@@ -79,14 +80,14 @@ float avg;
 	}
 
 	GameObject DetermineFittestPlayer(){
-		float fittest = 0;
 
-		for(int i=0;i<pop;i++){
+	for(int i=0;i<pop;i++){
 			if (PlayerClone[i].GetComponent<WalkStraight>().fitness > fittest) {
 				fittest = PlayerClone[i].GetComponent<WalkStraight>().fitness;
 				fittestPlayer = PlayerClone[i];
 			}
 		}
+		fittest = 0;
 		return fittestPlayer;
 	}
 
@@ -100,10 +101,12 @@ float avg;
 		avg /= pop;
 		}
 		void Mutate(){
-			for(int i=0;i<pop;i+=2){
-				if(PlayerClone[i].name != fittestPlayer.name) {
-			PlayerClone[i].GetComponent<WalkStraight>().weights[0] += Random.Range(-mutationRate,mutationRate);
-			PlayerClone[i].GetComponent<WalkStraight>().weights[1] += Random.Range(-mutationRate,mutationRate);
+			for(int i=0;i<pop;i++){
+				if(PlayerClone[i].name == fittestPlayer.name) {
+				}
+				else{
+				PlayerClone[i].GetComponent<WalkStraight>().weights[0] += Random.Range(-mutationRate/5,mutationRate/5);
+				PlayerClone[i].GetComponent<WalkStraight>().weights[1] += Random.Range(-mutationRate/5,mutationRate/5);
 		}
 		}
 		}

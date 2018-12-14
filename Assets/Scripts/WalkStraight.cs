@@ -82,9 +82,4 @@ public class WalkStraight : MonoBehaviour {
 	}
 }
 
-	public float GetFitness(){
-	fitness = (RightEye() + LeftEye())/2;
-	return fitness;
-	}
-
 }

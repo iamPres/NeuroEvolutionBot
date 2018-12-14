@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerScript : MonoBehaviour {
-		static WalkStraight script;
+		static WalkStraightModular script;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class TriggerScript : MonoBehaviour {
 
 	}
 	void OnTriggerEnter(Collider other) {
-		script = other.GetComponent<WalkStraight>();
+		script = other.GetComponent<WalkStraightModular>();
 		script.isAlive = false;
 		//Debug.Log("A PLAYER HAS DIED");
 	}
