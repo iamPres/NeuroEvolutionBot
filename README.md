@@ -1,3 +1,4 @@
 # NeuroEvolutionBot
-Neuro-Evolution course runner algorithm implemented in Unity.
+#### Neuro-Evolution course runner algorithm implemented in Unity.
+
 ![](demo.gif)
